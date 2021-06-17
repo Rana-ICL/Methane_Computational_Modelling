@@ -1,0 +1,147 @@
+!Version from 15.09.2017
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! How to cite: V.P. Zhukov, and A.F. Kong, Development of Skeletal 
+! Kinetic Mechanism of Methane Oxidation for High Pressures and 
+! Temperatures, Space Propulsion 2016, Rome, 2–6 May 2016.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Full Mechanism: V.P. Zhukov, V.A. Sechenov, A.Yu. Starikovskii,
+! "Autoignition of a Lean Propane–Air Mixture at High Pressures", 
+! Kinetics and Catalysis,
+! Vol. 46, No. 3, 2005, pp. 319–327. 
+! doi:10.1007/s10975-005-0079-7
+! http://dx.doi.org/10.1007/s10975-005-0079-7
+! Truncated mechanism (C1-C4), Release 08.12.2014
+! obtained by cutting off C5-C7 reactions
+! 207 species; 1260 reactions
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Modified by Alan Kong, 14.08.2015
+! Generated mechanism after Reaction Path Analysis and Sensitivity Analysis.
+! Final Skeletal Mechanism after Refinement Process
+! 23 species; 49 reactions
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!Correction on 26.11.2015 by V.P. Zhukov
+!+2 reactions
+!H+O2+AR<=>HO2+AR; H+O2+N2<=>HO2+N2
+!+ correction in HCO+M<=>H+CO+M, collision effectivity of H2O:=12 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+NewMEchanism derived from ReduceSens and Ramec (Usman Rana on 6.9.2017 Master thesis '' Validation of Kinetic Model of Methane Oxidation at High Pressures'')
+
+Following species removed from ReduceSens
+CH2
+Following species added to NewMechanism
+CH3OH,CH2OH CH3O2H
+Following reactions removed from ReduceSens by Usman Rana
+'O2 + CH2O <=> HO2 + HCO'
+'CH3 + O2 <=> O + CH3O
+'O + CO + M <=> CO2 + M'
+'H + OH + M <=> H2O + M'
+'H + HCO (+ M) <=> CH2O (+ M)' 
+'OH + CH2 <=> H + CH2O'
+'CH2 + CH3 <=> H + C2H4'
+'O2 + CO <=> O + CO2'
+Following reactions added by Usman Rana 
+'HCO + H2O <=> H + CO + H2O'
+'CH3 + HCO <=> CH4 + CO'
+'OH + C2H4 <=> C2H3 + H2O'
+'H + CH3OH <=> CH2OH + H2'
+ 'H + HO2 <=> O2 + H2'
+ 'H + HO2 <=> 2 OH' 
+'C2H5 + O2 <=> HO2 + C2H4'
+'CH3O2 + H2O2 <=> CH3O2H + HO2' 
+'C2H3 + O2 <=> HCO + CH2O'
+'2 CH3 <=> H + C2H5'
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ELEMENTS
+H C O N AR HE
+END
+SPECIES
+H2      H       O       O2      OH      H2O     HO2     H2O2
+CH3     CH4     CO      CO2     HCO     CH2O    CH3O    
+C2H3    C2H4    C2H5    C2H6    CH3O2   N2      AR  HE  CH3OH
+CH2OH  CH3O2H                                         
+END
+REACTIONS      CAL/MOLE              
+          
+H+O2+M<=>HO2+M                           2.800E+18   -0.860      0.00           
+O2/0.00/ H2O/0.00/ CO/0.75/ CO2/1.50/ C2H6/1.50/ N2/0.00/ AR/0.00/              
+H+2O2<=>HO2+O2                           3.000E+20   -1.720      0.00                                                                                                                      
+H+CH2O(+M)<=>CH3O(+M)                    5.400E+11    0.454   2600.00           
+     LOW  /  2.200E+30   -4.800   5560.00/                                      
+     TROE/  0.7580   94.00  1555.00  4200.00 /                                  
+H2/2.00/ H2O/6.00/ CH4/2.00/ CO/1.50/ CO2/2.00/ C2H6/3.00/                           
+2OH(+M)<=>H2O2(+M)                       7.400E+13   -0.370      0.00           
+     LOW  /  2.300E+18   -0.900  -1700.00/                                      
+     TROE/  0.7346   94.00  1756.00  5182.00 /                                  
+H2/2.00/ H2O/6.00/ CH4/2.00/ CO/1.50/ CO2/2.00/ C2H6/3.00/ AR/0.70/                      
+OH+HO2<=>O2+H2O                          2.900E+13    0.000   -500.00
+OH+H2O2<=>HO2+H2O                        1.750E+12    0.000    320.00           
+ DUPLICATE                                                                      
+OH+H2O2<=>HO2+H2O                        5.800E+14    0.000   9560.00           
+ DUPLICATE                                                                  
+OH+CH4<=>CH3+H2O                         1.000E+08    1.600   3120.00                                                                                                             
+2HO2<=>O2+H2O2                           1.300E+11    0.000  -1630.00           
+ DUPLICATE                                                                      
+2HO2<=>O2+H2O2                           4.200E+14    0.000  12000.00           
+ DUPLICATE                                                                               
+HO2+CH3<=>O2+CH4                         1.000E+12    0.000      0.00           
+HO2+CH3<=>OH+CH3O                        2.000E+13    0.000      0.00           
+HO2+CO<=>OH+CO2                          1.500E+14    0.000  23600.00           
+HO2+CH2O<=>HCO+H2O2                      1.000E+12    0.000   8000.00                                                               
+CH3+O2<=>OH+CH2O                         3.600E+10    0.000   8940.00           
+CH3+H2O2<=>HO2+CH4                       2.450E+04    2.470   5180.00                                             
+CH3+CH2O<=>HCO+CH4                       3.320E+03    2.810   5860.00                                                    
+CH3O+HO2<=>CH2O+H2O2                     1.200E+13    0.000      0.00
+CH3O2+CH3<=>CH3O+CH3O                    3.000E+13    0.000  -1200.00
+CH3O+O2<=>HO2+CH2O                       4.280E-13    7.600  -3530.00        
+CH3+O2<=>CH3O2                           1.700E+60  -15.100  18785.00
+CH3O+CH3<=>CH2O+CH4                      2.410E+13    0.000      0.00
+O+CH4<=>OH+CH3                           1.020E+09    1.500   8600.00
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!1D_Important_Reactions!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+H+O2<=>O+OH                              8.300E+13    0.000  14413.00
+H+O2+H2O<=>HO2+H2O                       9.380E+18   -0.760      0.00
+O+H2<=>H+OH                              5.000E+04    2.670   6290.00         
+O+CH3<=>H+CH2O                           8.430E+13    0.000      0.00                                                                                                                                           
+H+CH3(+M)<=>CH4(+M)                      1.270E+16   -0.630    383.00           
+     LOW  /  2.477E+33   -4.760   2440.00/                                      
+     TROE/  0.7830   74.00  2941.00  6964.00 /                                  
+H2/2.00/ H2O/6.00/ CH4/2.00/ CO/1.50/ CO2/2.00/ C2H6/3.00/ AR/0.70/                       
+H+C2H4(+M)<=>C2H5(+M)                    1.080E+12    0.454   1820.00           
+     LOW  /  1.200E+42   -7.620   6970.00/                                      
+     TROE/  0.9753  210.00   984.00  4374.00 /                                  
+H2/2.00/ H2O/6.00/ CH4/2.00/ CO/1.50/ CO2/2.00/ C2H6/3.00/ AR/0.70/            
+H+C2H4<=>C2H3+H2                         1.325E+06    2.530  12240.00           
+H+C2H6<=>C2H5+H2                         1.150E+08    1.900   7530.00                                           
+OH+H2<=>H+H2O                            2.160E+08    1.510   3430.00              
+OH+C2H6<=>C2H5+H2O                       3.540E+06    2.120    870.00                                                                                        
+HCO+O2<=>HO2+CO                          7.600E+12    0.000    400.00 
+HCO+M<=>H+CO+M                           1.870E+17   -1.000  17000.00         
+H2/2.00/ H2O/12.0/ CH4/2.00/ CO/1.50/ CO2/2.00/ C2H6/3.00/ 
+CH3+OH<=>CH2O+H2                         8.000E+12    0.000      0.00
+OH+CO<=>H+CO2                            4.760E+07    1.228     70.00
+OH+CH2O<=>HCO+H2O                        3.430E+09    1.180   -447.00
+H+CH2O<=>HCO+H2                          2.300E+10    1.050   3275.00
+H+CH4<=>CH3+H2                           6.600E+08    1.620  10840.00
+2CH3(+M)<=>C2H6(+M)                      2.120E+16   -0.970    620.00          
+     LOW  /  1.770E+50   -9.670   6220.00/                                      
+     TROE/  0.5325  151.00  1038.00  4970.00 /                                  
+H2/2.00/ H2O/6.00/ CH4/2.00/ CO/1.50/ CO2/2.00/ C2H6/3.00/ AR/0.70/   
+!Correction on 26.11.2015 by V.P. Zhukov
+H+O2+N2<=>HO2+N2                         2.600E+19   -1.240      0.00           
+H+O2+AR<=>HO2+AR                         7.000E+17   -0.800      0.00 
+!Correction on 26.7.2017 by Usman Rana
+HCO+H2O<=>H+CO+H2O                       2.244E+18   -1.000  17000.00           
+CH3+HCO<=>CH4+CO                         2.648E+13    0.000      0.00
+OH+C2H4<=>C2H3+H2O                       3.600E+06    2.000   2500.00
+H+CH3OH<=>CH2OH+H2                       1.700E+07    2.100   4870.00          
+H+HO2<=>O2+H2                            2.800E+13    0.000   1068.00           
+H+HO2<=>2OH                              1.340E+14    0.000    635.00
+C2H5+O2<=>HO2+C2H4                       8.400E+11    0.000   3875.00           
+CH3O2+H2O2<=>CH3O2H+HO2                   2.40E+12     .000   9942.00                                                                                       
+C2H3+O2<=>HCO+CH2O                       3.980E+12    0.000   -240.00
+2CH3<=>H+C2H5                            4.990E+12    0.100  10600.00       
+         
+END
